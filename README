@@ -1,0 +1,39 @@
+Nose order plugin
+
+This plugin allows methods in Nose test classes to run in the order they are
+defined, rather than alphabetically.
+
+Note that it is bad practice to rely on test order. If you can avoid it, do so;
+otherwise this plugin is for you.
+
+INSTALLATION
+
+From PyPI: pip install nose_order_plugin
+From source: setup.py install
+
+USAGE
+
+- Mark the test class with the nose_order_plugin.ordered decorator
+- Pass the --with-ordered-tests option to Nose
+
+CAVEATS
+
+- Only plain classes may be ordered. Classes deriving from unittest.TestCase
+  are incompatible with this plugin.
+- The plugin looks at source code lines for ordering; if the methods are not
+  defined in a single file (or other magic is used), the ordering might not be
+  precise.
+- Test generators are not supported -- they might work, but they're untested.
+
+DEVELOPMENT
+
+The current maintainer is Petr Viktorin <encukou@gmail.com>
+The plugin was originally developed as part of the FreeIPA project.
+
+Development is done on Github: github.com/encukou/nose-order-plugin
+Issues and pull requests are welcome.
+
+A Github-less workflow is also available:
+- git clone github.com/encukou/nose-order-plugin
+- Create a set of patches and mail them to the author,
+  or host a Git branch and send a link to it by e-mail.
